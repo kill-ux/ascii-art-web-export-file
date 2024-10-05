@@ -5,6 +5,7 @@ import (
 	"html/template"
 	"net/http"
 	"os"
+	"strconv"
 	"strings"
 )
 
@@ -19,7 +20,7 @@ type Page struct {
 }
 
 var art = &Page{Title: "index.html"}
-
+// render templates
 func renderTemplate(w http.ResponseWriter, p *Page) {
 	temp, err := template.ParseFiles("./templates/" + p.Title)
 	if err != nil {
@@ -53,6 +54,7 @@ func HomeHandler(w http.ResponseWriter, r *http.Request) {
 	if art.Art == "" {
 		os.Remove("output/file.txt")
 	}
+
 	renderTemplate(w, art)
 	art.MessageError = ""
 }
@@ -100,6 +102,7 @@ func ArtHandler(w http.ResponseWriter, r *http.Request) {
 		art.Banner = ""
 		art.Art = ""
 		w.Header().Set("Content-Type", "text/plain")
+		w.Header().Set("Content-Length", strconv.Itoa(len(data)))
 		w.Header().Set("Content-Disposition", "attachment; filename=output/file.txt")
 		http.ServeFile(w, r, "output/file.txt")
 	} else {
