@@ -7,28 +7,25 @@ body {
     /* background: linear-gradient(to bottom, #bdb6ad, #a69483); */
     background-color: #bdb6ad;
     color: white;
-    height: 100vh;
+     height: 100vh;
     padding-top: 50px;
     background-size:auto;
 }
 #err{
     color: red;
 }
-
 form {
     text-align: center;
-    padding-bottom: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 10px;
 }
-
 h1 {
     text-align: center;
     margin:0;
     margin-bottom: 120px;
 }
-
 .inputs, .banners {
     display: flex;   
     justify-content: center;  
@@ -37,15 +34,9 @@ h1 {
 .inputs{
     width: 90%;
 }
-
-#textarea {
-    width: 40%;
-    height: 100%;
-}
-
 textarea {
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-    margin: 20px;
+    margin: 35px;
     text-wrap: nowrap;
     overflow: auto;
     resize: none;
@@ -53,24 +44,12 @@ textarea {
     border: none;
     padding: 10px;
     background-color: whitesmoke;
-    width: 85%;
+    width: 40%;
     height: 100%;
 }
-
-#download {
-    width: 100px;
-    font-size:medium;
-    padding: 5px 15px;
-    border-radius: 2px;
-    background-color: whitesmoke;
-    box-shadow: 0 0 2px black;
-    border: outset 2px rgb(131, 121, 121);
-}
-
 input[type="radio"] {
     display: none;
 }
-
 label {
     cursor: pointer;
     margin: 10px;
@@ -78,9 +57,9 @@ label {
     font-size: x-large;
     opacity: 0.5;
 }
-
 input[type="submit"] {
     width: 150px;
+    margin-inline: 10px;
     margin-top: 50px;
     font-size: larger;
     padding: 15px 25px;
@@ -88,32 +67,35 @@ input[type="submit"] {
     background-color: bdb6ad;
     border: none;
     font-weight: bold;
+    cursor:pointer;
 }
-
 input[type="submit"]:hover {
     background-color: #c7beb3;
     color: white;
 }
-
 input[type="submit"]:active {
     background-color: #c7beb3;
 }
-
 input[type="radio"]:checked+label {
     text-decoration: underline;
     opacity: 1;
 }
 @media screen and (max-width:1000px){
-    #textarea{
+    textarea{
         width: 80%;
         
         transition: width 0.5s ;
     }
-
     label {
-
-        font-size: large;
-       
+        font-size: large;   
     }
-    
+
+
+input[type="submit"] {
+    width: 120px;
+    font-size: large;
+    padding: 10px 20px;
+    margin-top: 10px;
+    font-weight:500;
+} 
 }

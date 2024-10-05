@@ -12,12 +12,8 @@
     <h1 id="title">ASCII-ART-WEB</h1>
     <form action="/ascii-art" method="post" >
         <div class="inputs">
-            <div id="textarea">
-                <textarea id="text" name="text" class="inputText" rows="20" cols="50" required  maxlength="1500" placeholder="Enter your text..."></textarea>
-            </div>
-            <div id="textarea">
+            <textarea id="text" name="text" class="inputText" rows="20" cols="50" required  maxlength="1500" placeholder="Enter your text..."></textarea>
             <textarea id="test" class="outputText"  rows="20" cols="50"  disabled placeholder="Result..."></textarea>
-            </div>
         </div>
         <p id="err">{{.MessageError}}</p>
         <br>
@@ -35,8 +31,10 @@
         <label for="chap">Chap</label>
     </div>
         <br>
-        <input type="submit" name="download" value="download" >
+       <div>
         <input type="submit" value="Generate">
+        <input type="submit" name="download" value="download" >
+       </div>
     </form>
 
    
