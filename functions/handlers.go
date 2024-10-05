@@ -20,6 +20,7 @@ type Page struct {
 }
 
 var art = &Page{Title: "index.html"}
+
 // render templates
 func renderTemplate(w http.ResponseWriter, p *Page) {
 	temp, err := template.ParseFiles("./templates/" + p.Title)
@@ -92,8 +93,7 @@ func ArtHandler(w http.ResponseWriter, r *http.Request) {
 	// download a file
 	download := r.FormValue("download")
 	if download == "download" {
-
-		os.Mkdir("output", 0o777)
+		os.MkdirAll("output", 0o777)
 		err = os.WriteFile("./output/file.txt", data, 0o666)
 		if err != nil {
 			fmt.Println(err.Error())
@@ -103,7 +103,7 @@ func ArtHandler(w http.ResponseWriter, r *http.Request) {
 		art.Art = ""
 		w.Header().Set("Content-Type", "text/plain")
 		w.Header().Set("Content-Length", strconv.Itoa(len(data)))
-		w.Header().Set("Content-Disposition", "attachment; filename=output/file.txt")
+		w.Header().Set("Content-Disposition", "attachment; filename=file.txt")
 		http.ServeFile(w, r, "output/file.txt")
 	} else {
 		http.Redirect(w, r, "/", http.StatusFound)
